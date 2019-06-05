@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include <stdlib.h>
 #include "../include/pessoa.h"
 #include "../include/mao.h"
 
@@ -26,6 +27,7 @@ Mao Pessoa::get_mao(){
 }
 void Pessoa::imprime_mao()
 {
+  system("clear");
   list<Carta> :: iterator it;
   for(it = _mao._cartas.begin(); it != _mao._cartas.end(); it++){
       cout << "Carta:" << it->get_nome() << " " << it->get_naipe() << endl;
