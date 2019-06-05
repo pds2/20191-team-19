@@ -13,6 +13,7 @@ class Pessoa: public Player{
         virtual Mao get_mao();
         virtual void receberMao(Mao mao);
         void jogarCoberta();
+        void imprime_mao();
 };
 
 #endif
