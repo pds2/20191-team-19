@@ -78,6 +78,9 @@ int main()
     
     m = Mao();
     c3.receberMao(m);
-
+    /*
+    Mesa m = Mesa();
+    m.cartas[0] = p.get_mao().get_carta(1);
+    */
     return 0;
 }
