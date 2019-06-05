@@ -24,3 +24,11 @@ void Pessoa::jogarCoberta() { }
 Mao Pessoa::get_mao(){
     return this->_mao;
 }
+void Pessoa::imprime_mao()
+{
+  list<Carta> :: iterator it;
+  for(it = _mao._cartas.begin(); it != _mao._cartas.end(); it++){
+      cout << "Carta:" << it->get_nome() << " " << it->get_naipe() << endl;
+      //cout << "Valor:" << it->get_peso() << endl;
+  }
+}
