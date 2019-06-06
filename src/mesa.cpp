@@ -10,8 +10,4 @@ Mesa::Mesa(){
 
 void Mesa::imprime_mesa(){
     
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> c951e265d547e74fad85ad94a81241e0920be137
