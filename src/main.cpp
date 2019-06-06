@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdlib.h>
 #include <string>
 #include <list>
 #include <ctime>
@@ -10,10 +11,10 @@
 #include "../include/pessoa.h"
 
 using namespace std;
-
 int main()
 {
     srand((unsigned)time(NULL));
+    system("clear");
     /*
         peso:
             4 = 1;
@@ -30,7 +31,7 @@ int main()
             ESPADILHA = 12;
             7 COPAS = 13;
             ZAP = 14;
-    
+
     Mao m = Mao();
     list<Carta> :: iterator it;
     for(it = m._cartas.begin(); it != m._cartas.end(); it++){
@@ -50,14 +51,12 @@ int main()
         cout<<" 2 - Carregar Jogo"<<endl;
         cout<<" 3 - Sair"<<endl;
     cin >> opcao;
-
     //Inicia o jogo atraves da opcao desejada
     Jogo j = Jogo(opcao);
 
     //Solicita o nome do jogador
-    cout << "Digite seu nome:" << endl;
+    cout << "Digite seu nome: " << endl;
     cin >> nome;
-
     //Cria o jogador
     Pessoa p = Pessoa(nome);
 
@@ -65,7 +64,7 @@ int main()
     Computador c1 = Computador("PC 1", 2);
     Computador c2 = Computador("PC 2", 1);
     Computador c3 = Computador("PC 3", 2);
-    
+
     //Cria as maos
     Mao m = Mao();
     p.receberMao(m);
@@ -75,12 +74,18 @@ int main()
 
     m = Mao();
     c2.receberMao(m);
-    
+
     m = Mao();
     c3.receberMao(m);
-    /*
-    Mesa m = Mesa();
-    m.cartas[0] = p.get_mao().get_carta(1);
-    */
+
+    p.imprime_mao();
+    //escolhe a primeira carta
+    p.escolhe_carta(1);
+    p.imprime_mao();
+    p.escolhe_carta(1);
+    p.imprime_mao();
+    p.escolhe_carta(1);
+    p.imprime_mao();
+
     return 0;
 }
