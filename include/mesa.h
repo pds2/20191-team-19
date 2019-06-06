@@ -5,7 +5,7 @@
 
 class Mesa{
 public:
-    Carta cartas[4];
+    int cartas[4];
     Mesa();
     void imprime_mesa();
 }
