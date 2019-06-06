@@ -27,10 +27,18 @@ Mao Pessoa::get_mao(){
 }
 void Pessoa::imprime_mao()
 {
-  system("clear");
+  //system("clear");
   list<Carta> :: iterator it;
   for(it = _mao._cartas.begin(); it != _mao._cartas.end(); it++){
       cout << "Carta:" << it->get_nome() << " " << it->get_naipe() << endl;
       //cout << "Valor:" << it->get_peso() << endl;
   }
+}
+void Pessoa::escolhe_carta(int _num)
+{
+  list<Carta> :: iterator it = this->_mao._cartas.begin();
+  advance(it, _num - 1);
+  cout<<endl;
+  cout << "Carta Escolhida:" << it->get_nome() << " " << it->get_naipe() << endl;
+  _mao._cartas.erase(it);
 }
