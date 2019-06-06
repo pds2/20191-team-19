@@ -14,6 +14,7 @@ class Pessoa: public Player{
         virtual void receberMao(Mao mao);
         void jogarCoberta();
         void imprime_mao();
+        void escolhe_carta(int _num);
 };
 
 #endif
