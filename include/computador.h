@@ -3,6 +3,7 @@
 
 #include "player.h"
 #include "mao.h"
+#include "mesa.h"
 #include <string>
 
 using namespace std;
@@ -14,6 +15,7 @@ class Computador: public Player{
         virtual bool revisarTruco();
         virtual void receberMao(Mao mao);
         virtual Mao get_mao();
+        void jogar(Mesa m);
 };
 
 #endif
