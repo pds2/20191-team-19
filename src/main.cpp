@@ -57,13 +57,14 @@ int main()
     //Solicita o nome do jogador
     cout << "Digite seu nome: " << endl;
     cin >> nome;
+    
     //Cria o jogador
     Pessoa p = Pessoa(nome);
 
     //Cria os computadores
-    Computador c1 = Computador("PC 1", 2);
-    Computador c2 = Computador("PC 2", 1);
-    Computador c3 = Computador("PC 3", 2);
+    Computador c1 = Computador("PC 1", 2, 1);
+    Computador c2 = Computador("PC 2", 1, 2);
+    Computador c3 = Computador("PC 3", 2, 3);
 
     //Cria as maos
     Mao m = Mao();
@@ -77,7 +78,13 @@ int main()
 
     m = Mao();
     c3.receberMao(m);
+    
+    Mesa mesa;
+    c1.jogar(mesa);
+    c2.jogar(mesa);
+    c3.jogar(mesa);
 
+    /*
     p.imprime_mao();
     //escolhe a primeira carta
     p.escolhe_carta(1);
@@ -86,6 +93,6 @@ int main()
     p.imprime_mao();
     p.escolhe_carta(1);
     p.imprime_mao();
-
+    */
     return 0;
 }

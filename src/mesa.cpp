@@ -1,5 +1,5 @@
-#include "include/mesa.h"
-#include "include/carta.h"
+#include "../include/mesa.h"
+#include "../include/carta.h"
 
 Mesa::Mesa(){
     for (int i = 0; i < 4; i++)

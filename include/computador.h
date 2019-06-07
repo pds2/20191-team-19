@@ -9,8 +9,15 @@
 using namespace std;
 
 class Computador: public Player{
+    private:
+        int _id;
+        void jogaNaMesa(int id, string carta, int peso, Mesa m);
+        void jogaMenorCarta(Mesa m);
+        void jogaMaiorCarta(int posicao, Mesa m);
+        void primeiroJogando(Mesa m);
     public:
-        Computador(string nome, int time);
+        Computador(string nome, int time, int id);
+        int get_id();
         virtual void pedirTruco();
         virtual bool revisarTruco();
         virtual void receberMao(Mao mao);

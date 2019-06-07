@@ -15,15 +15,9 @@ Jogo::Jogo(int opcao){
 }
 
 void Jogo::novoJogo(){
-    
-    this->_valorRodada = 0;
     this->_pntTimeA = 0;
     this->_pntTimeB = 0;
 
-}
-
-void Jogo::set_valorRodada(int valor){
-    this->_valorRodada += valor;
 }
 
 void Jogo::set_pntTimeA(int valor){
@@ -40,8 +34,4 @@ int Jogo::get_pntTimeA(){
 
 int Jogo::get_pntTimeB(){
     return this->_pntTimeB;
-}
-
-int Jogo::get_valorRodada(){
-    return this->_valorRodada;
 }
