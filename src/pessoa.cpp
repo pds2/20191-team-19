@@ -36,16 +36,18 @@ void Pessoa::imprime_mao()
 }
 void Pessoa::escolhe_carta()
 {
-  int _num=1,i;
-  list<Carta> :: iterator ap = this->_mao._cartas.begin();
-  cout<<" Escolha a carta: "<<endl;
-  for(i=1,ap;ap!=_mao._cartas.end();ap++,i++)
-  {
-    cout<<" "<<i<<" - "<<" "<<ap->get_nome()<<" "<<ap->get_naipe()<<endl;
-  }
+  int _num=0;
   list<Carta> :: iterator it = this->_mao._cartas.begin();
-  advance(it, _num - 1);
-  cout<<endl;
-  cout << "Carta Escolhida:" << it->get_nome() << " " << it->get_naipe() << endl;
-  _mao._cartas.erase(it);
+    cout<<"1"<<" - "<<" "<<it->get_nome()<<" "<<it->get_naipe()<<endl;
+    it++;
+    cout<<"2"<<" - "<<" "<<it->get_nome()<<" "<<it->get_naipe()<<endl;
+    it++;
+    cout<<"3"<<" - "<<" "<<it->get_nome()<<" "<<it->get_naipe()<<endl;
+    cout<<" Escolha a carta: "<<endl;
+    cin>>_num;
+    it = this->_mao._cartas.begin();
+    advance(it, _num - 1);
+    cout<<endl;
+    cout << "Carta Escolhida:" << it->get_nome() << " " << it->get_naipe() << endl;
+    _mao._cartas.erase(it);
 }
