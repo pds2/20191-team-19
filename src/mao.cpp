@@ -16,6 +16,7 @@ Mao::Mao(Mesa m)
             existe = confereCarta(m);
         } while (existe);
         this->_cartas.push_back(c);
+        m.baralho.push_back(c);
     }
 }
 

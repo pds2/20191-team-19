@@ -23,6 +23,8 @@ class Computador: public Player{
         virtual void receberMao(Mao mao);
         virtual Mao get_mao();
         void jogar(Mesa m);
+        //teste
+        void imprime_mao();
 };
 
 #endif

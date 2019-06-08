@@ -75,13 +75,31 @@ int main()
     
     m = Mao(mesa);
     c1.receberMao(m);
+    cout << "MAO C1" << endl;
+    c1.imprime_mao();
+
+    cout << "" << endl;
+    cout << "" << endl;
+    cout << "" << endl;
 
     m = Mao(mesa);
     c2.receberMao(m);
+    cout << "MAO C2" << endl;
+    c2.imprime_mao();
+
+    cout << "" << endl;
+    cout << "" << endl;
+    cout << "" << endl;
 
     m = Mao(mesa);
     c3.receberMao(m);
-    
+    cout << "MAO C3" << endl;
+    c3.imprime_mao();
+
+    cout << "" << endl;
+    cout << "" << endl;
+    cout << "" << endl;
+
     c1.jogar(mesa);
     c2.jogar(mesa);
     c3.jogar(mesa);
