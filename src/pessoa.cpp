@@ -34,8 +34,15 @@ void Pessoa::imprime_mao()
       //cout << "Valor:" << it->get_peso() << endl;
   }
 }
-void Pessoa::escolhe_carta(int _num)
+void Pessoa::escolhe_carta()
 {
+  int _num=1,i;
+  list<Carta> :: iterator ap = this->_mao._cartas.begin();
+  cout<<" Escolha a carta: "<<endl;
+  for(i=1,ap;ap!=_mao._cartas.end();ap++,i++)
+  {
+    cout<<" "<<i<<" - "<<" "<<ap->get_nome()<<" "<<ap->get_naipe()<<endl;
+  }
   list<Carta> :: iterator it = this->_mao._cartas.begin();
   advance(it, _num - 1);
   cout<<endl;
