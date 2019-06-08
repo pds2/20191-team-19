@@ -30,7 +30,7 @@ Mao Computador::get_mao(){
 }
 
 void Computador::jogaNaMesa(int id, string carta, int peso, Mesa m){
-    cout << carta << endl;
+  //  cout << carta << endl;
     m.cartas[id] = peso;
 }
 
@@ -89,10 +89,10 @@ void Computador::jogaMenorCarta(Mesa m){
         }
         //Joga a carta
         jogaNaMesa(this->_id, carta, menor, m);
-        
+
 }
 
-void Computador::jogaMaiorCarta(int posicao, Mesa m){ //Nao ta funcionando 
+void Computador::jogaMaiorCarta(int posicao, Mesa m){ //Nao ta funcionando
     list<Carta>::iterator it = this->_mao._cartas.begin();
     string carta;
     int maior = INT16_MIN;
@@ -117,4 +117,3 @@ void Computador::imprime_mao()
       cout << "Carta:" << it->get_nome() << " " << it->get_naipe() << endl;
   }
 }
-
