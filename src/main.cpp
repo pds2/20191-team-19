@@ -57,7 +57,10 @@ int main()
     //Solicita o nome do jogador
     cout << "Digite seu nome: " << endl;
     cin >> nome;
-    
+
+    //Cria a mesa
+    Mesa mesa;
+
     //Cria o jogador
     Pessoa p = Pessoa(nome);
 
@@ -67,19 +70,18 @@ int main()
     Computador c3 = Computador("PC 3", 2, 3);
 
     //Cria as maos
-    Mao m = Mao();
+    Mao m = Mao(mesa);
     p.receberMao(m);
-
-    m = Mao();
+    
+    m = Mao(mesa);
     c1.receberMao(m);
 
-    m = Mao();
+    m = Mao(mesa);
     c2.receberMao(m);
 
-    m = Mao();
+    m = Mao(mesa);
     c3.receberMao(m);
     
-    Mesa mesa;
     c1.jogar(mesa);
     c2.jogar(mesa);
     c3.jogar(mesa);

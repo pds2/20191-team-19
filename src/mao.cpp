@@ -4,28 +4,31 @@
 
 using namespace std;
 
-Mao::Mao()
+Mao::Mao(){}
+
+Mao::Mao(Mesa m)
 {
-    list<Carta> mao;
     for (int i = 0; i < 3; i++)
     {
         Carta c;
-        list<Carta>::iterator it;
-
         bool existe = false;
-        do
-        {
-            c = Carta();
-            for (it = mao.begin(); it != mao.end(); it++)
-            {
-                if ((it->get_naipe() == c.get_naipe()) && (it->get_nome() == c.get_nome()))
-                    existe = true;
-            }
-
+        do{
+            existe = confereCarta(m);
         } while (existe);
-        mao.push_back(c);
+        this->_cartas.push_back(c);
     }
-    this->_cartas = mao;
+}
+
+bool Mao::confereCarta(Mesa m)
+{
+    Carta c = Carta();
+    list<Carta>::iterator it = m.baralho.begin();
+    for (it; it != m.baralho.end(); it++)
+    {
+        if(it->get_peso() == c.get_peso())
+            return true;
+    }
+    return false;
 }
 
 int Mao::calcularPeso()

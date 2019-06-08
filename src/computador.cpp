@@ -30,7 +30,7 @@ Mao Computador::get_mao(){
 }
 
 void Computador::jogaNaMesa(int id, string carta, int peso, Mesa m){
-    cout << carta;
+    cout << carta << endl;
     m.cartas[id] = peso;
 }
 
