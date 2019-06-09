@@ -27,7 +27,7 @@ bool Mao::confereCarta(Carta &c, Mesa &m)
     list<Carta>::iterator it = m.baralho.begin();
     for (it; it != m.baralho.end(); it++)
     {
-        if(it->get_peso() == c.get_peso())
+        if((it->get_nome() == c.get_nome())&& (it->get_naipe()==c.get_naipe()))
             return true;
     }
     return false;
