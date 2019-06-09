@@ -16,6 +16,11 @@ int main()
     srand((unsigned)time(NULL));
     system("clear");
     /*
+        NAIPES:
+        "♥"
+        "♦"
+        "♣"
+        "♠"
         peso:
             4 = 1;
             5 = 2;
@@ -45,24 +50,22 @@ int main()
     string nome;
 
     cout << "*******************************************"<<endl;
-        cout<<"\t\t TRUCÃO MALADO "<<endl;
-        cout<<" Menu: "<<endl;
-        cout<<" 1 - Iniciar Jogo"<<endl;
-        cout<<" 2 - Carregar Jogo"<<endl;
-        cout<<" 3 - Sair"<<endl;
+        cout << "\t\t TRUCÃO MALADO "<<endl;
+        cout << " Menu: "<<endl;
+        cout << " 1 - Iniciar Jogo"<<endl;
+        cout << " 2 - Carregar Jogo"<<endl;
+        cout << " 3 - Sair"<<endl;
+        cout << ">";
     cin >> opcao;
+
     //Inicia o jogo atraves da opcao desejada
     Jogo j = Jogo(opcao);
-
-    //Solicita o nome do jogador
-    cout << "Digite seu nome: " << endl;
-    cin >> nome;
 
     //Cria a mesa
     Mesa mesa = Mesa();
 
     //Cria o jogador
-    Pessoa p = Pessoa(nome);
+    Pessoa p = Pessoa(j.get_nome());
 
     //Cria os computadores
     Computador c1 = Computador("PC 1", 2, 1);

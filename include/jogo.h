@@ -1,11 +1,16 @@
 #ifndef JOGO_H
 #define JOGO_H
 
+#include <string>
+
+using namespace std;
+
 class Jogo{
-    protected:
+    private:
         int _pntTimeA;
         int _pntTimeB;
-        int quemComeca;
+        int _quemComeca;
+        string _nome;
         void novoJogo();
     public:
         Jogo(int opcao);
@@ -15,6 +20,7 @@ class Jogo{
         int get_quemComeca();
         int get_pntTimeA();
         int get_pntTimeB();
+        string get_nome();
 };
 
 #endif 

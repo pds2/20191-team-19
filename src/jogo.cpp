@@ -1,4 +1,7 @@
 #include "../include/jogo.h"
+#include <iostream>
+
+using namespace std;
 
 Jogo::Jogo(int opcao){
 
@@ -17,7 +20,11 @@ Jogo::Jogo(int opcao){
 void Jogo::novoJogo(){
     this->_pntTimeA = 0;
     this->_pntTimeB = 0;
-
+    
+    //Solicita o nome do jogador
+    cout << "Digite seu nome: ";
+    cin >> this->_nome;
+    cout << endl;
 }
 
 void Jogo::set_pntTimeA(int valor){
@@ -34,4 +41,8 @@ int Jogo::get_pntTimeA(){
 
 int Jogo::get_pntTimeB(){
     return this->_pntTimeB;
+}
+
+string Jogo::get_nome(){
+    return this->_nome;
 }
