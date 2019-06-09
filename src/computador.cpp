@@ -29,30 +29,30 @@ Mao Computador::get_mao(){
     return this->_mao;
 }
 
-void Computador::jogaNaMesa(int id, string carta, int peso, Mesa m){
-  //  cout << carta << endl;
+void Computador::jogaNaMesa(int id, string carta, int peso, Mesa &m){
+    cout << carta << endl;
     m.cartas[id] = peso;
 }
 
-void Computador::primeiroJogando(Mesa m){
+void Computador::primeiroJogando(Mesa &m){
     list<Carta>::iterator it = this->_mao._cartas.begin();
     string carta;
-    int maior = INT16_MIN;
+    int maior = 6;
     for(it; it != this->_mao._cartas.end(); it++){
-        if(it->get_peso() > maior){
+        if(it->get_peso() > maior && maior >=7 && maior <= 11){
             maior = it->get_peso();
             carta = it->get_nome() + " " + it->get_naipe();
         }
     }
-    if(maior >=7 && maior <= 11)
+    if(maior != 6)
         jogaNaMesa(this->_id, carta, maior, m);
     else
         jogaMenorCarta(m);
 }
 
-void Computador::jogar(Mesa m){
+void Computador::jogar(Mesa &m){
     int posicao = 0;
-    int maior = INT16_MIN;
+    int maior = -100000;
     //Procura pela maior carta na mesa
     for (int i = 0; i < 4; i++){
             if(m.cartas[i] > maior){
@@ -70,15 +70,17 @@ void Computador::jogar(Mesa m){
         jogaMenorCarta(m);
     /*Verifica se a maior carta pertence ao time adversario e joga a maior se possuir, se nao, a menor*/
     else if(this->_time == 2 && posicao == 0 || posicao == 2){
-        cout << maior << " " << posicao << endl;
-        jogaMaiorCarta(posicao, m);
+        jogaCartaMaior(posicao, m);
+    }
+    else if(this->_time == 1 && posicao == 1 || posicao == 3){
+        jogaCartaMaior(posicao, m);
     }
 }
 
-void Computador::jogaMenorCarta(Mesa m){
+void Computador::jogaMenorCarta(Mesa &m){
         //Procura a menor carta para jogar
         list<Carta>::iterator it = this->_mao._cartas.begin();
-        int menor = INT16_MAX;
+        int menor = 100000;
         string carta;
         for (it; it != this->_mao._cartas.end(); it++)
         {
@@ -92,17 +94,19 @@ void Computador::jogaMenorCarta(Mesa m){
 
 }
 
-void Computador::jogaMaiorCarta(int posicao, Mesa m){ //Nao ta funcionando
+void Computador::jogaCartaMaior(int posicao, Mesa &m){ //Nao ta funcionando
     list<Carta>::iterator it = this->_mao._cartas.begin();
     string carta;
-    int maior = INT16_MIN;
+    int maior = 10000;
+    int diferenca;
     for(it; it != this->_mao._cartas.end(); it++){
-        if(it->get_peso() > m.cartas[posicao]){
+        diferenca = it->get_peso() - m.cartas[posicao];
+        if(diferenca > 0 && diferenca < maior - m.cartas[posicao]){
             maior = it->get_peso();
             carta = it->get_nome() + " " + it->get_naipe();
         }
     }
-    if(maior != 0){
+    if(maior != 10000){
         jogaNaMesa(this->_id, carta, maior, m);
     }else{
         jogaMenorCarta(m);

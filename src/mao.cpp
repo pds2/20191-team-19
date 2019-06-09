@@ -1,32 +1,33 @@
 #include "../include/mao.h"
 #include "../include/carta.h"
 #include <list>
+#include <iostream>
 
 using namespace std;
 
 Mao::Mao(){}
 
-Mao::Mao(Mesa m)
+Mao::Mao(Mesa &m)
 {
     for (int i = 0; i < 3; i++)
     {
         Carta c;
         bool existe = false;
         do{
-            existe = confereCarta(m);
+            c = Carta();
+            existe = confereCarta(c, m);
         } while (existe);
         this->_cartas.push_back(c);
         m.baralho.push_back(c);
     }
 }
 
-bool Mao::confereCarta(Mesa m)
+bool Mao::confereCarta(Carta &c, Mesa &m)
 {
-    Carta c = Carta();
     list<Carta>::iterator it = m.baralho.begin();
     for (it; it != m.baralho.end(); it++)
     {
-        if((it->get_nome() == c.get_nome())&& (it->get_naipe()==c.get_naipe()))
+        if(it->get_peso() == c.get_peso())
             return true;
     }
     return false;
@@ -48,3 +49,6 @@ Carta Mao::get_carta(int i){
     advance(it, i - 1);
     return *it;
 }
+
+
+

@@ -8,13 +8,11 @@
 using namespace std;
 
 class Mao {
-    private:
-        string a;
     public:
         list<Carta> _cartas;
         Mao();
-        Mao(Mesa m);
-        bool confereCarta(Mesa m);
+        Mao(Mesa &m);
+        bool confereCarta(Carta &c, Mesa &m);
         int calcularPeso();
         Carta get_carta(int i);
 };

@@ -59,7 +59,7 @@ int main()
     cin >> nome;
 
     //Cria a mesa
-    Mesa mesa;
+    Mesa mesa = Mesa();
 
     //Cria o jogador
     Pessoa p = Pessoa(nome);
@@ -72,7 +72,7 @@ int main()
     //Cria as maos
     Mao m = Mao(mesa);
     p.receberMao(m);
-    
+
     m = Mao(mesa);
     c1.receberMao(m);
     cout << "MAO C1" << endl;
