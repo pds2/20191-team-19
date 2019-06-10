@@ -12,6 +12,7 @@ public:
     list<Carta> baralho;
     Mesa();
     void imprime_mesa();
+    Carta recuperaCarta(int id, int peso);
 };
 
 #endif

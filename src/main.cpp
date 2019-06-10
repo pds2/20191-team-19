@@ -65,7 +65,7 @@ int main()
     Mesa mesa = Mesa();
 
     //Cria o jogador
-    Pessoa p = Pessoa(j.get_nome());
+    //Pessoa p = Pessoa(j.get_nome());
 
     //Cria os computadores
     Computador c1 = Computador("PC 1", 2, 1);
@@ -73,15 +73,14 @@ int main()
     Computador c3 = Computador("PC 3", 2, 3);
 
     //Cria as maos
-    Mao m = Mao(mesa);
-    p.receberMao(m);
+    //Mao m = Mao(mesa);
+    //p.receberMao(m);
 
-    m = Mao(mesa);
+    Mao m = Mao(mesa);
     c1.receberMao(m);
     cout << "MAO C1" << endl;
     c1.imprime_mao();
 
-    cout << "" << endl;
     cout << "" << endl;
     cout << "" << endl;
 
@@ -92,7 +91,6 @@ int main()
 
     cout << "" << endl;
     cout << "" << endl;
-    cout << "" << endl;
 
     m = Mao(mesa);
     c3.receberMao(m);
@@ -101,11 +99,14 @@ int main()
 
     cout << "" << endl;
     cout << "" << endl;
-    cout << "" << endl;
 
     c1.jogar(mesa);
     c2.jogar(mesa);
     c3.jogar(mesa);
+    cout << endl;
+    
+    mesa.imprime_mesa();
+    cout << endl;
 
     /*
     p.imprime_mao();

@@ -13,7 +13,7 @@ class Player{
         int _pesoMao;
         int _time;
     public:
-        virtual void receberMao(Mao mao) = 0;
+        virtual void receberMao(Mao &mao) = 0;
         virtual void pedirTruco() = 0;
         virtual bool revisarTruco() = 0;
         virtual Mao get_mao() = 0;

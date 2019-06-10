@@ -122,3 +122,10 @@ string Carta::get_naipe()
 {
   return _naipe;
 }
+
+Carta::Carta(int peso){
+    this->_peso = peso;
+    Carta::geraNome(peso);
+    Carta::geraNaipe();
+    Carta::conferirManilha();
+}

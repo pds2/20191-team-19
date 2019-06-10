@@ -12,7 +12,7 @@ Computador::Computador(string nome, int time, int id){
     this->_time = time;
 }
 
-void Computador::receberMao(Mao mao){
+void Computador::receberMao(Mao &mao){
     this->_mao = mao;
     this->_pesoMao = this->_mao.calcularPeso();
 }

@@ -20,10 +20,10 @@ class Computador: public Player{
         int get_id();
         virtual void pedirTruco();
         virtual bool revisarTruco();
-        virtual void receberMao(Mao mao);
+        virtual void receberMao(Mao &mao);
         virtual Mao get_mao();
         void jogar(Mesa &m);
-        
+
         //teste
         void imprime_mao();
 };

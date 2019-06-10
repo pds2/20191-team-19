@@ -11,7 +11,7 @@ class Pessoa: public Player{
         virtual void pedirTruco();
         virtual bool revisarTruco();
         virtual Mao get_mao();
-        virtual void receberMao(Mao mao);
+        virtual void receberMao(Mao &mao);
         void jogarCoberta();
         void imprime_mao();
         void escolhe_carta();

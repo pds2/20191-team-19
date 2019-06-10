@@ -15,6 +15,7 @@ class Carta{
         void geraNome(int peso);
     public:
         Carta();
+        Carta(int peso);
         string get_nome();
         int get_peso();
         string get_naipe();
