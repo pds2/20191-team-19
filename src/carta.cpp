@@ -59,19 +59,19 @@ void Carta::geraNaipe()
     switch (n)
     {
     case 1:
-        this->_naipe = "OUROS";
+        this->_naipe = "♦ OUROS";
         break;
 
     case 2:
-        this->_naipe = "PAUS";
+        this->_naipe = "♣ PAUS";
         break;
 
     case 3:
-        this->_naipe = "COPAS";
+        this->_naipe = "♥ COPAS";
         break;
 
     default:
-        this->_naipe = "ESPADAS";
+        this->_naipe = "♠ ESPADAS";
         break;
     }
 }
@@ -121,4 +121,11 @@ int Carta::get_peso()
 string Carta::get_naipe()
 {
   return _naipe;
+}
+
+Carta::Carta(int peso){
+    this->_peso = peso;
+    Carta::geraNome(peso);
+    Carta::geraNaipe();
+    Carta::conferirManilha();
 }
