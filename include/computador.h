@@ -22,6 +22,7 @@ class Computador: public Player{
         virtual void pedirTruco();
         virtual bool revisarTruco();
         virtual void receberMao(Mao &mao);
+        virtual string get_nome();
         virtual Mao get_mao();
         void jogar(Mesa &m);
 

@@ -17,6 +17,7 @@ class Player{
         virtual void pedirTruco() = 0;
         virtual bool revisarTruco() = 0;
         virtual Mao get_mao() = 0;
+        virtual string get_nome() = 0;
 };
 
 #endif

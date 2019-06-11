@@ -25,6 +25,7 @@ void Pessoa::jogarCoberta() { }
 Mao Pessoa::get_mao(){
     return this->_mao;
 }
+
 void Pessoa::imprime_mao()
 {
   list<Carta> :: iterator it;
@@ -32,7 +33,8 @@ void Pessoa::imprime_mao()
       cout << "Carta:" << it->get_nome() << " " << it->get_naipe() << endl;
   }
 }
-void Pessoa::escolhe_carta()
+
+Carta Pessoa::escolhe_carta()
 {
   int _num=0;
   list<Carta> :: iterator it = this->_mao._cartas.begin();
@@ -47,5 +49,11 @@ void Pessoa::escolhe_carta()
     advance(it, _num - 1);
     cout<<endl;
     cout << "Carta Escolhida:" << it->get_nome() << " " << it->get_naipe() << endl;
-    _mao._cartas.erase(it);
+    list<Carta> :: iterator ap = it;
+    return *ap;
+    this->_mao._cartas.erase(it);
+}
+
+string Pessoa::get_nome(){
+  return this->_nome;
 }

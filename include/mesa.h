@@ -1,8 +1,10 @@
 #ifndef MESA_H
 #define MESA_H
 
-#include "carta.h"
+#include <string>
 #include <list>
+#include "computador.h"
+#include "pessoa.h"
 
 class Mesa{
 public:
@@ -12,10 +14,10 @@ public:
     int valorRodada;
     list<Carta> baralho;
     Mesa();
-    void imprime_mesa();
+    void imprime_mesa(Pessoa &p, Computador &c1, Computador &c2, Computador &c3);
+    void imprime_mesa(Pessoa &p, Computador &c1, Computador &c2, Computador &c3, Carta &carta);
     Carta recuperaCarta(int id, int peso);
     int verificaQuemGanhou();
-    timeGanhou(int time);
     void limpaMesa();
 };
 

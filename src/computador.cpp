@@ -137,3 +137,7 @@ void Computador::deletaCarta(int peso, string carta){
     }
     _mao._cartas.erase(remover);
 }
+
+string Computador::get_nome(){
+  return this->_nome;
+}
