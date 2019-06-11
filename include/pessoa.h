@@ -10,11 +10,12 @@ class Pessoa: public Player{
         Pessoa(string nome);
         virtual void pedirTruco();
         virtual bool revisarTruco();
+        virtual string get_nome();
         virtual Mao get_mao();
-        virtual void receberMao(Mao mao);
+        virtual void receberMao(Mao& mao);
         void jogarCoberta();
         void imprime_mao();
-        void escolhe_carta(int _num);
+        string escolhe_carta();
 };
 
 #endif
