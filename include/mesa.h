@@ -15,7 +15,6 @@ public:
     void imprime_mesa();
     Carta recuperaCarta(int id, int peso);
     int verificaQuemGanhou();
-    timeGanhou(int time);
     void limpaMesa();
 };
 
