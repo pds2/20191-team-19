@@ -15,6 +15,7 @@ class Computador: public Player{
         void jogaMenorCarta(Mesa &m);
         void jogaCartaMaior(int posicao, Mesa &m);
         void primeiroJogando(Mesa &m);
+        void deletaCarta(int peso, string carta);
     public:
         Computador(string nome, int time, int id);
         int get_id();

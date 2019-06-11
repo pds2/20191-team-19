@@ -48,6 +48,8 @@ void Computador::primeiroJogando(Mesa &m){
         jogaMenorCarta(m);
     else
         jogaNaMesa(this->_id, carta, maior, m);
+    deletaCarta(maior, carta);
+    
 }
 
 void Computador::jogar(Mesa &m){
@@ -91,6 +93,7 @@ void Computador::jogaMenorCarta(Mesa &m){
         }
         //Joga a carta
         jogaNaMesa(this->_id, carta, menor, m);
+        deletaCarta(menor, carta);
 
 }
 
@@ -108,6 +111,7 @@ void Computador::jogaCartaMaior(int posicao, Mesa &m){ //Nao ta funcionando
     }
     if(maior != 10000){
         jogaNaMesa(this->_id, carta, maior, m);
+        deletaCarta(maior, carta);
     }else{
         jogaMenorCarta(m);
     }
@@ -118,6 +122,18 @@ void Computador::imprime_mao()
   //system("clear");
   list<Carta> :: iterator it;
   for(it = _mao._cartas.begin(); it != _mao._cartas.end(); it++){
-      cout << "Carta: " << it->get_nome() << it->get_naipe() << endl;
+    cout << "Carta: " << it->get_nome() << it->get_naipe() << endl;
   }
+}
+
+void Computador::deletaCarta(int peso, string carta){
+    list<Carta> :: iterator it, remover;
+    string c;
+    for(it = _mao._cartas.begin(); it != _mao._cartas.end(); it++){
+        c = it->get_nome() + it->get_naipe();
+        if(it->get_peso() == peso && carta == c){
+            remover = it;
+        }
+    }
+    _mao._cartas.erase(remover);
 }

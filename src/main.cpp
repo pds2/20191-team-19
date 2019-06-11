@@ -107,6 +107,9 @@ int main()
     
     mesa.imprime_mesa();
     cout << endl;
+    c1.imprime_mao();
+    c2.imprime_mao();
+    c3.imprime_mao();
 
     /*
     p.imprime_mao();
