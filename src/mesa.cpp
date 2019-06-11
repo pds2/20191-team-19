@@ -71,7 +71,7 @@ void Mesa::limpaMesa(){
     }
 
     list<Carta> :: iterator it;
-    for(it = this->baralho.begin(); it =! this->baralho.end(); it++){
+    for(it = this->baralho.begin(); it != this->baralho.end(); it++){
         this->baralho.erase(it);
     }
 
