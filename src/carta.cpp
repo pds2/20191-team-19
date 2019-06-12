@@ -110,17 +110,17 @@ Carta::Carta()
 
 string Carta::get_nome()
 {
-  return _nome;
+  return this->_nome;
 }
 
 int Carta::get_peso()
 {
-  return _peso;
+  return this->_peso;
 }
 
 string Carta::get_naipe()
 {
-  return _naipe;
+  return this->_naipe;
 }
 
 Carta::Carta(int peso){
