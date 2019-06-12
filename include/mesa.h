@@ -3,8 +3,7 @@
 
 #include <string>
 #include <list>
-#include "computador.h"
-#include "pessoa.h"
+#include "carta.h"
 
 class Mesa{
 public:
@@ -14,9 +13,9 @@ public:
     int valorRodada;
     list<Carta> baralho;
     Mesa();
-    void imprime_mesa(Pessoa &p, Computador &c1, Computador &c2, Computador &c3);
-    void imprime_mesa(Pessoa &p, Computador &c1, Computador &c2, Computador &c3, Carta &carta);
-    Carta recuperaCarta(int id, int peso);
+    void imprime_mesa(string pessoa, string c1, string c2, string c3, string carta);
+    void imprime_mesa(string pessoa, string c1, string c2, string c3);
+    string recuperaCarta(int id, int peso);
     int verificaQuemGanhou();
     void limpaMesa();
 };

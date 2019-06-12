@@ -19,6 +19,7 @@ class Carta{
         string get_nome();
         int get_peso();
         string get_naipe();
+        ;
 };
 
 #endif
