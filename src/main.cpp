@@ -76,7 +76,7 @@ int main()
     Mao m = Mao(mesa);
     p.receberMao(m);
 
-    Mao m = Mao(mesa);
+    m = Mao(mesa);
     c1.receberMao(m);
     cout << "MAO C1" << endl;
     c1.imprime_mao();
@@ -105,7 +105,7 @@ int main()
     c3.jogar(mesa);
     cout << endl;
     
-    mesa.imprime_mesa(p, c1, c2, c3);
+    mesa.imprime_mesa(p.get_nome(), c1.get_nome(), c2.get_nome(), c3.get_nome());
     cout << endl;
     c1.imprime_mao();
     c2.imprime_mao();

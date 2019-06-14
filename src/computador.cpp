@@ -119,7 +119,6 @@ void Computador::jogaCartaMaior(int posicao, Mesa &m){ //Nao ta funcionando
 
 void Computador::imprime_mao()
 {
-  //system("clear");
   list<Carta> :: iterator it;
   for(it = _mao._cartas.begin(); it != _mao._cartas.end(); it++){
     cout << "Carta: " << it->get_nome() << it->get_naipe() << endl;
@@ -127,15 +126,18 @@ void Computador::imprime_mao()
 }
 
 void Computador::deletaCarta(int peso, string carta){
-    list<Carta> :: iterator it, remover;
+    list<Carta> :: iterator it , remover;
+    remover = this->_mao._cartas.begin();
     string c;
-    for(it = _mao._cartas.begin(); it != _mao._cartas.end(); it++){
+    for(it = this->_mao._cartas.begin(); it != this->_mao._cartas.end(); it++){
         c = it->get_nome() + it->get_naipe();
         if(it->get_peso() == peso && carta == c){
             remover = it;
         }
     }
-    _mao._cartas.erase(remover);
+    if(remover != this->_mao._cartas.begin()){
+        this->_mao._cartas.erase(remover);
+    }
 }
 
 string Computador::get_nome(){

@@ -7,18 +7,20 @@ using namespace std;
 
 Mao::Mao(){}
 
-Mao::Mao(Mesa &m)
+Mao::Mao(Mesa& m)
 {
     for (int i = 0; i < 3; i++)
     {
-        Carta c;
+        Carta c = Carta();
         bool existe = false;
         do{
             c = Carta();
             existe = confereCarta(c, m);
-        } while (existe);
-        this->_cartas.push_back(c);
-        m.baralho.push_back(c);
+        }while (existe);
+        if(existe){
+            this->_cartas.push_back(c);
+            m.baralho.push_back(c);
+        }
     }
 }
 

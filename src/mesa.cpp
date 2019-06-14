@@ -1,7 +1,5 @@
 #include "../include/mesa.h"
 #include "../include/carta.h"
-#include "../include/pessoa.h"
-#include "../include/computador.h"
 #include <iostream>
 #include <math.h>
 
@@ -17,9 +15,9 @@ Mesa::Mesa(){
 /**
  * Pessoa ja jogou
 */
-void Mesa::imprime_mesa(Pessoa &p, Computador &c1, Computador &c2, Computador &c3, Carta &carta){
+void Mesa::imprime_mesa(string p, string c1, string c2, string c3, Carta &carta){
     int peso = 0;
-    string cartap, carta1, carta2, carta3;
+    string carta1, carta2, carta3;
 
     int i = 1;
     peso = this->cartas[i];
@@ -39,34 +37,21 @@ void Mesa::imprime_mesa(Pessoa &p, Computador &c1, Computador &c2, Computador &c
         carta3 = recuperaCarta(i, peso).get_nome() + recuperaCarta(i, peso).get_naipe();/*Quando player funcionando, tirar o -1*/
     else
         carta3 = "      ";
-    
-    /*
-    cout << "\t\t\t" << "   PC" << i << ":" << endl;
-    cout << "\t\t\t" << c.get_nome() << c.get_naipe() << endl;
-    cout << endl; cout << endl;
 
-    i++; peso = this->cartas[i]; c = recuperaCarta(i - 1/*Quando player funcionando, tirar o -1, peso);
-    cout << "    " << "PC" << i << ":  " << c.get_nome() << c.get_naipe();
-
-    i = i -2; peso = this->cartas[i]; c = recuperaCarta(i - 1/*Quando player funcionando, tirar o -1, peso);
-    cout << "\t\t        " << c.get_nome() << c.get_naipe() << "  :PC" << i;
-    cout << endl; cout << endl;
-    */
-
-    cout << "\t\t\t" << "   " << c2.get_nome() << endl;
+    cout << "\t\t\t" << "   " << c2 << endl;
     cout << "\t\t\t" << carta2 << endl;
     cout << endl; cout << endl;
-    cout << "    " << c3.get_nome() << carta3;
-    cout << "\t\t        " << carta1 << "  " << c1.get_nome();
+    cout << "    " << c3 << carta3;
+    cout << "\t\t        " << carta1 << "  " << c1;
     cout << endl; cout << endl;
     cout << "\t\t\t" << carta.get_nome() << carta.get_naipe() << endl;
-    cout << "\t\t\t" << "   " << p.get_nome() << endl;
+    cout << "\t\t\t" << "   " << p << endl;
 }
 
 /**
  * Pessoa ainda nao jogou
 */
-void Mesa::imprime_mesa(Pessoa &p, Computador &c1, Computador &c2, Computador &c3){
+void Mesa::imprime_mesa(string p, string c1, string c2, string c3){
     int peso = 0;
     string carta1, carta2, carta3;
 
@@ -89,14 +74,14 @@ void Mesa::imprime_mesa(Pessoa &p, Computador &c1, Computador &c2, Computador &c
     else
         carta3 = "      ";
 
-    cout << "\t\t\t" << "   " << c2.get_nome() << endl;
+    cout << "\t\t\t" << "   " << c2 << endl;
     cout << "\t\t\t" << carta2 << endl;
     cout << endl; cout << endl;
-    cout << "    " << c3.get_nome() << carta3;
-    cout << "\t\t        " << carta1 << "  " << c1.get_nome();
+    cout << "    " << c3 << carta3;
+    cout << "\t\t        " << carta1 << "  " << c1;
     cout << endl; cout << endl;
     cout << "\t\t\t" << "      " << endl;
-    cout << "\t\t\t" << "   " << p.get_nome() << endl;
+    cout << "\t\t\t" << "   " << p << endl;
 }
 
 Carta Mesa::recuperaCarta(int id, int peso){

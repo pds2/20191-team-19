@@ -8,7 +8,6 @@ using namespace std;
 
 void Carta::geraNome(int peso)
 {
-    string nome;
     switch (peso)
     {
     case 1:
@@ -55,8 +54,7 @@ void Carta::geraNome(int peso)
 void Carta::geraNaipe()
 {
     int n = 1 + (rand() % 4);
-    string naipe;
-    switch (n)
+    switch(n)
     {
     case 1:
         this->_naipe = "♦ OUROS";
@@ -102,30 +100,32 @@ void Carta::conferirManilha()
 Carta::Carta()
 {
     int peso = 1 + rand() % 10;
+    this->_nome = "";
+    this->_naipe = "";
     this->_peso = peso;
-    Carta::geraNome(peso);
-    Carta::geraNaipe();
-    Carta::conferirManilha();
+    this->geraNome(peso);
+    this->geraNaipe();
+    this->conferirManilha();
 }
 
 string Carta::get_nome()
 {
-  return _nome;
+  return this->_nome;
 }
 
 int Carta::get_peso()
 {
-  return _peso;
+  return this->_peso;
 }
 
 string Carta::get_naipe()
 {
-  return _naipe;
+  return this->_naipe;
 }
 
 Carta::Carta(int peso){
     this->_peso = peso;
-    Carta::geraNome(peso);
-    Carta::geraNaipe();
-    Carta::conferirManilha();
+    this->geraNome(peso);
+    this->geraNaipe();
+    this->conferirManilha();
 }
