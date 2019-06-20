@@ -4,20 +4,19 @@
 #include <string>
 #include "player.h"
 #include "mao.h"
-#include "carta.h"
 
 class Pessoa: public Player{
     public:
+        Pessoa();
         Pessoa(string nome);
         virtual void pedirTruco();
         virtual bool revisarTruco();
         virtual string get_nome();
         virtual Mao get_mao();
-        virtual void receberMao(Mao& mao);
+        virtual void receberMao(Mesa& mesa);
         void jogarCoberta();
         void imprime_mao();
-        Carta escolhe_carta();
-        virtual int get_time();
+        string escolhe_carta();
 };
 
 #endif

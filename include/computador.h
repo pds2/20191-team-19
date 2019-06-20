@@ -1,10 +1,10 @@
 #ifndef COMPUTADOR_H
 #define COMPUTADOR_H
 
+#include <string>
 #include "player.h"
 #include "mao.h"
 #include "mesa.h"
-#include <string>
 
 using namespace std;
 
@@ -17,16 +17,15 @@ class Computador: public Player{
         void primeiroJogando(Mesa& m);
         void deletaCarta(int peso, string carta);
     public:
+        Computador();
         Computador(string nome, int time, int id);
         int get_id();
         virtual void pedirTruco();
         virtual bool revisarTruco();
-        virtual void receberMao(Mao& mao);
+        virtual void receberMao(Mesa& mesa);
         virtual string get_nome();
         virtual Mao get_mao();
         void jogar(Mesa& m);
-        virtual int get_time();
-
 
         //teste
         void imprime_mao();

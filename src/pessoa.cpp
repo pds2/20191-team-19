@@ -6,14 +6,17 @@
 
 using namespace std;
 
+Pessoa::Pessoa(){}
+
 Pessoa::Pessoa(string nome)
 {
   this->_nome = nome;
   this->_time = 1;
 }
 
-void Pessoa::receberMao(Mao &mao)
+void Pessoa::receberMao(Mesa& mesa)
 {
+  Mao mao = Mao(mesa);
   this->_mao = mao;
   this->_pesoMao = this->_mao.calcularPeso();
 }
@@ -23,6 +26,11 @@ void Pessoa::pedirTruco() {}
 bool Pessoa::revisarTruco() {}
 
 void Pessoa::jogarCoberta() {}
+
+string Pessoa::get_nome()
+{
+  return this->_nome;
+}
 
 Mao Pessoa::get_mao()
 {
@@ -38,40 +46,27 @@ void Pessoa::imprime_mao()
   }
 }
 
-Carta Pessoa::escolhe_carta()
+string Pessoa::escolhe_carta()
 {
-  int _num = 0;
+  int _num = 0, i;
+  string carta;
   list<Carta>::iterator it = this->_mao._cartas.begin();
-  cout << "1"
-       << " - "
-       << " " << it->get_nome() << " " << it->get_naipe() << endl;
-  it++;
-  cout << "2"
-       << " - "
-       << " " << it->get_nome() << " " << it->get_naipe() << endl;
-  it++;
-  cout << "3"
-       << " - "
-       << " " << it->get_nome() << " " << it->get_naipe() << endl;
-  cout << " Escolha a carta: " << endl;
-  cin >> _num;
-  it = this->_mao._cartas.begin();
-  advance(it, _num - 1);
-  cout << endl;
-  cout << "Carta Escolhida:" << it->get_nome() << " " << it->get_naipe() << endl;
-  Carta ap = *it;
-  if(it != this->_mao._cartas.begin()){
+  if(this->_mao._cartas.size() != 0){
+    for(it = this->_mao._cartas.begin(), i = 1; it != this->_mao._cartas.end(); it++, i++){
+      cout << i
+      << " - "
+      << " " << it->get_nome() << " " << it->get_naipe() << endl;
+    }
+    cout << " Escolha a carta: " << endl;
+    cin >> _num;
+
+    it = this->_mao._cartas.begin();
+    advance(it, _num - 1);
+    cout << endl;
+    cout << "Carta Escolhida: " << it->get_nome() << " " << it->get_naipe() << endl;
+
+    carta = it->get_nome() + it->get_naipe();
     this->_mao._cartas.erase(it);
-    return ap;
   }
-}
-
-string Pessoa::get_nome()
-{
-  return this->_nome;
-}
-
-int Pessoa::get_time()
-{
-  return this->_time;
+  return carta;
 }

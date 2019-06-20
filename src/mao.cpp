@@ -1,7 +1,8 @@
-#include "../include/mao.h"
-#include "../include/carta.h"
 #include <list>
 #include <iostream>
+#include "../include/mao.h"
+#include "../include/carta.h"
+#include "../include/mesa.h"
 
 using namespace std;
 
@@ -17,10 +18,11 @@ Mao::Mao(Mesa& m)
             c = Carta();
             existe = confereCarta(c, m);
         }while (existe);
-        if(existe){
+        if(!existe){
             this->_cartas.push_back(c);
             m.baralho.push_back(c);
         }
+
     }
 }
 

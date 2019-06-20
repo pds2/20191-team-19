@@ -1,9 +1,9 @@
 #ifndef MAO_H
 #define MAO_H
 
+#include <list>
 #include "carta.h"
 #include "mesa.h"
-#include <list>
 
 using namespace std;
 

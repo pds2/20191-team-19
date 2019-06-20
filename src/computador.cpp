@@ -6,13 +6,16 @@
 
 using namespace std;
 
+Computador::Computador(){}
+
 Computador::Computador(string nome, int time, int id){
     this->_id = id;
     this->_nome = nome;
     this->_time = time;
 }
 
-void Computador::receberMao(Mao& mao){
+void Computador::receberMao(Mesa& mesa){
+    Mao mao = Mao(mesa);
     this->_mao = mao;
     this->_pesoMao = this->_mao.calcularPeso();
 }
@@ -33,6 +36,10 @@ void Computador::jogaNaMesa(int id, string carta, int peso, Mesa& m){
     m.cartas[id] = peso;
 }
 
+string Computador::get_nome(){
+  return this->_nome;
+}
+
 void Computador::primeiroJogando(Mesa& m){
     list<Carta>::iterator it;
     string carta;
@@ -48,7 +55,6 @@ void Computador::primeiroJogando(Mesa& m){
     else
         jogaNaMesa(this->_id, carta, maior, m);
     deletaCarta(maior, carta);
-
 }
 
 void Computador::jogar(Mesa& m){
@@ -96,7 +102,7 @@ void Computador::jogaMenorCarta(Mesa& m){
 
 }
 
-void Computador::jogaCartaMaior(int posicao, Mesa& m){ //Nao ta funcionando
+void Computador::jogaCartaMaior(int posicao, Mesa& m){
     list<Carta>::iterator it;
     string carta;
     int maior = 10000;
@@ -119,7 +125,7 @@ void Computador::jogaCartaMaior(int posicao, Mesa& m){ //Nao ta funcionando
 void Computador::imprime_mao()
 {
   list<Carta> :: iterator it;
-  for(it = this->_mao._cartas.begin(); it != this->_mao._cartas.end(); it++){
+  for(it = _mao._cartas.begin(); it != _mao._cartas.end(); it++){
     cout << "Carta: " << it->get_nome() << it->get_naipe() << endl;
   }
 }
@@ -131,17 +137,10 @@ void Computador::deletaCarta(int peso, string carta){
     for(it = this->_mao._cartas.begin(); it != this->_mao._cartas.end(); it++){
         c = it->get_nome() + it->get_naipe();
         if(it->get_peso() == peso && carta == c){
+            remover = it;
         }
     }
-    if(remover != this->_mao._cartas.begin()){
+    if(this->_mao._cartas.size() != 0){
         this->_mao._cartas.erase(remover);
     }
-}
-
-string Computador::get_nome(){
-  return this->_nome;
-}
-int Computador::get_time()
-{
-  return this->_time;
 }

@@ -13,9 +13,9 @@ public:
     int valorRodada;
     list<Carta> baralho;
     Mesa();
-    void imprime_mesa(string p, string c1, string c2, string c3, Carta &carta);
-    void imprime_mesa(string p, string c1, string c2, string c3);
-    Carta recuperaCarta(int id, int peso);
+    void imprime_mesa(string pessoa, string c1, string c2, string c3, string carta, int rodada);
+    void imprime_mesa(string pessoa, string c1, string c2, string c3, int rodada);
+    string recuperaCarta(int id, int peso, int rodada);
     int verificaQuemGanhou();
     void limpaMesa();
 };
