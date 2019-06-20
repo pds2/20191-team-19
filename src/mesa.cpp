@@ -118,10 +118,14 @@ int Mesa::verificaQuemGanhou(){
     }
     if(this->ganhouRodada[0] != 0 || this->ganhouRodada[0] != 0)
         return posicao;
-    else if(posicao == 0 || posicao == 2)
+    else if(posicao == 0 || posicao == 2){
         this->ganhouRodada[0]++;
-    else
+        return 4;
+    }
+    else{
         this->ganhouRodada[1]++;
+        return 4;
+    }
 }
 
 void Mesa::limpaMesa(){
