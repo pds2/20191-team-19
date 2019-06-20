@@ -97,7 +97,7 @@ void Jogo::iniciarRodada(){
         cout << "\tTIME A  " << this->get_pntTimeA() << "\tx\t" << this->get_pntTimeB() << "  TIME B" << endl;
         this->_c3.jogar(this->_mesa);
         this->_mesa.imprime_mesa(this->_p.get_nome(), this->_c1.get_nome(), this->_c2.get_nome(), this->_c3.get_nome(), i);
-        sleep(5 + (rand() % 4));
+        sleep(5 + (rand() % 2));
         
         string carta = this->_p.escolhe_carta();
         system("clear");
