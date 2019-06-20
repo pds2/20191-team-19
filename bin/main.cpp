@@ -34,17 +34,31 @@ int main()
             ZAP = 14;
     */
 
-    int opcao;
-    string nome;
-
-    cout << "*******************************************" << endl;
-    cout << "\t\t TRUCÃO MALADO " << endl;
-    cout << " Menu: " << endl;
-    cout << " 1 - Iniciar Jogo" << endl;
-    cout << " 2 - Carregar Jogo" << endl;
-    cout << " 3 - Sair" << endl;
-    cout << " >";
-    cin >> opcao;
+      int opcao;
+      string nome;
+      string opcao_;
+      while(true){
+                  try{
+                        cout << "*******************************************" << endl;
+                        cout << "\t\t TRUCÃO MALADO " << endl;
+                        cout << " Menu: " << endl;
+                        cout << " 1 - Iniciar Jogo" << endl;
+                        cout << " 2 - Carregar Jogo" << endl;
+                        cout << " 3 - Sair" << endl;
+                        cout << ">";
+                        getline(cin, opcao_);
+                        opcao=atoi(opcao_.c_str());
+                          if(opcao !=1 && opcao != 2 && opcao != 3)
+                          {
+                            throw "Entrada inválida.";
+                          }else
+                              break;
+                    }catch(const char* e)
+                    {
+  			                 cout << "Erro: " << e <<endl;
+                         cout << "Escolha uma entrada valida" << endl;
+                    }
+                  }
 
     //Inicia o jogo atraves da opcao desejada
     Jogo j = Jogo(opcao);
