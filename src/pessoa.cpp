@@ -48,6 +48,7 @@ void Pessoa::imprime_mao()
 
 string Pessoa::escolhe_carta()
 {
+  string num_;
   int _num = 0, i;
   string carta;
   list<Carta>::iterator it = this->_mao._cartas.begin();
@@ -57,8 +58,42 @@ string Pessoa::escolhe_carta()
       << " - "
       << " " << it->get_nome() << " " << it->get_naipe() << endl;
     }
+
+    while(true){
+      try{
     cout << " Escolha a carta: " << endl;
-    cin >> _num;
+    fflush(stdin);
+            getline(cin, num_);
+                     _num=atoi(num_.c_str());
+                     if(_mao._cartas.size() == 3){
+                       if(_num !=1 && _num != 2 && _num != 3)
+                       {
+                         throw "Entrada inválida.";
+                       }else
+                           break;
+                         }
+                           if(_mao._cartas.size()==2){
+                             if(_num !=1 && _num != 2)
+                             {
+                               throw "Entrada inválida.";
+                             }else
+                                break;
+                                }
+                                if(_mao._cartas.size() == 1)
+                                {
+                                  if(_num !=1  )
+                                  {
+                                    throw "Entrada inválida.";
+                                  }else
+                                    break;
+                                }
+                 }catch(const char* e)
+                 {
+                      cout << "Erro: " << e <<endl;
+                      cout << "Escolha uma entrada valida" << endl;
+                 }
+               }
+
 
     it = this->_mao._cartas.begin();
     advance(it, _num - 1);
