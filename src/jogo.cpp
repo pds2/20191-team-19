@@ -16,6 +16,7 @@ Jogo::Jogo(int opcao){
         break;
 
     default:
+        exit(0);
         break;
     }
 
@@ -109,7 +110,7 @@ void Jogo::iniciarRodada(){
         int time = this->_mesa.verificaQuemGanhou();
         if (time == 0 || time == 2)
             this->set_pntTimeA(this->_mesa.valorRodada);
-        else
+        else if(jogador == 1 || jogador == 3)
             this->set_pntTimeB(this->_mesa.valorRodada);
         this->_mesa.limpaMesa();
         i--;
