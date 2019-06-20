@@ -11,20 +11,22 @@ using namespace std;
 class Computador: public Player{
     private:
         int _id;
-        void jogaNaMesa(int id, string carta, int peso, Mesa &m);
-        void jogaMenorCarta(Mesa &m);
-        void jogaCartaMaior(int posicao, Mesa &m);
-        void primeiroJogando(Mesa &m);
+        void jogaNaMesa(int id, string carta, int peso, Mesa& m);
+        void jogaMenorCarta(Mesa& m);
+        void jogaCartaMaior(int posicao, Mesa& m);
+        void primeiroJogando(Mesa& m);
         void deletaCarta(int peso, string carta);
     public:
         Computador(string nome, int time, int id);
         int get_id();
         virtual void pedirTruco();
         virtual bool revisarTruco();
-        virtual void receberMao(Mao &mao);
+        virtual void receberMao(Mao& mao);
         virtual string get_nome();
         virtual Mao get_mao();
-        void jogar(Mesa &m);
+        void jogar(Mesa& m);
+        virtual int get_time();
+
 
         //teste
         void imprime_mao();

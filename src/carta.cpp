@@ -6,6 +6,17 @@
 
 using namespace std;
 
+Carta::Carta()
+{
+    int peso = 1 + rand() % 10;
+    this->_nome = "nome";
+    this->_naipe = "naipe";
+    this->_peso = peso;
+    this->geraNome(peso);
+    this->geraNaipe();
+    this->conferirManilha();
+}
+
 void Carta::geraNome(int peso)
 {
     switch (peso)
@@ -97,20 +108,11 @@ void Carta::conferirManilha()
     }
 }
 
-Carta::Carta()
-{
-    int peso = 1 + rand() % 10;
-    this->_nome = "";
-    this->_naipe = "";
-    this->_peso = peso;
-    this->geraNome(peso);
-    this->geraNaipe();
-    this->conferirManilha();
-}
-
 string Carta::get_nome()
 {
-  return this->_nome;
+    string nome = this->_nome;
+    cout << this->_nome;
+    return nome;
 }
 
 int Carta::get_peso()
@@ -124,6 +126,8 @@ string Carta::get_naipe()
 }
 
 Carta::Carta(int peso){
+    this->_naipe = "naipe";
+    this->_nome = "nome";
     this->_peso = peso;
     this->geraNome(peso);
     this->geraNaipe();

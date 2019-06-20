@@ -14,7 +14,6 @@ using namespace std;
 int main()
 {
     srand((unsigned)time(NULL));
-    system("clear");
     /*
         NAIPES:
         "♥"
@@ -49,13 +48,13 @@ int main()
     int opcao;
     string nome;
 
-    cout << "*******************************************"<<endl;
-        cout << "\t\t TRUCÃO MALADO "<<endl;
-        cout << " Menu: "<<endl;
-        cout << " 1 - Iniciar Jogo"<<endl;
-        cout << " 2 - Carregar Jogo"<<endl;
-        cout << " 3 - Sair"<<endl;
-        cout << ">";
+    cout << "*******************************************" << endl;
+    cout << "\t\t TRUCÃO MALADO " << endl;
+    cout << " Menu: " << endl;
+    cout << " 1 - Iniciar Jogo" << endl;
+    cout << " 2 - Carregar Jogo" << endl;
+    cout << " 3 - Sair" << endl;
+    cout << ">";
     cin >> opcao;
 
     //Inicia o jogo atraves da opcao desejada
@@ -99,18 +98,36 @@ int main()
 
     cout << "" << endl;
     cout << "" << endl;
+    int i = 0;
+    while(i < 3){
+        c1.jogar(mesa);
+        mesa.imprime_mesa(p.get_nome(), c1.get_nome(), c2.get_nome(), c3.get_nome());
+        cout << endl;
+        c2.jogar(mesa);
+        mesa.imprime_mesa(p.get_nome(), c1.get_nome(), c2.get_nome(), c3.get_nome());
+        cout << endl;
+        c3.jogar(mesa);
+        mesa.imprime_mesa(p.get_nome(), c1.get_nome(), c2.get_nome(), c3.get_nome());
+        cout << endl;
 
-    c1.jogar(mesa);
-    c2.jogar(mesa);
-    c3.jogar(mesa);
-    cout << endl;
-    
-    mesa.imprime_mesa(p.get_nome(), c1.get_nome(), c2.get_nome(), c3.get_nome());
-    cout << endl;
-    c1.imprime_mao();
-    c2.imprime_mao();
-    c3.imprime_mao();
+        Carta c = p.escolhe_carta();
+        //mesa.imprime_mesa(p.get_nome(), c1.get_nome(), c2.get_nome(), c3.get_nome(), c);
 
+        cout << endl;
+        c1.imprime_mao();
+        c2.imprime_mao();
+        c3.imprime_mao();
+        p.imprime_mao();
+        cout << endl;
+
+        int vencedor = mesa.verificaQuemGanhou();
+        if (vencedor == 0 || vencedor == 2)
+            j.set_pntTimeA(mesa.valorRodada);
+        else
+            j.set_pntTimeB(mesa.valorRodada);
+        mesa.limpaMesa();
+        i++;
+    }
     /*
     p.imprime_mao();
     //escolhe a primeira carta

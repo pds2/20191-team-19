@@ -11,7 +11,7 @@ Mao::Mao(Mesa& m)
 {
     for (int i = 0; i < 3; i++)
     {
-        Carta c = Carta();
+        Carta c;
         bool existe = false;
         do{
             c = Carta();
@@ -24,7 +24,7 @@ Mao::Mao(Mesa& m)
     }
 }
 
-bool Mao::confereCarta(Carta &c, Mesa &m)
+bool Mao::confereCarta(Carta& c, Mesa& m)
 {
     list<Carta>::iterator it = m.baralho.begin();
     for (it; it != m.baralho.end(); it++)

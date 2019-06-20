@@ -12,7 +12,7 @@ Computador::Computador(string nome, int time, int id){
     this->_time = time;
 }
 
-void Computador::receberMao(Mao &mao){
+void Computador::receberMao(Mao& mao){
     this->_mao = mao;
     this->_pesoMao = this->_mao.calcularPeso();
 }
@@ -29,12 +29,11 @@ Mao Computador::get_mao(){
     return this->_mao;
 }
 
-void Computador::jogaNaMesa(int id, string carta, int peso, Mesa &m){
-    cout << carta << endl;
+void Computador::jogaNaMesa(int id, string carta, int peso, Mesa& m){
     m.cartas[id] = peso;
 }
 
-void Computador::primeiroJogando(Mesa &m){
+void Computador::primeiroJogando(Mesa& m){
     list<Carta>::iterator it;
     string carta;
     int maior = 6;
@@ -49,10 +48,10 @@ void Computador::primeiroJogando(Mesa &m){
     else
         jogaNaMesa(this->_id, carta, maior, m);
     deletaCarta(maior, carta);
-    
+
 }
 
-void Computador::jogar(Mesa &m){
+void Computador::jogar(Mesa& m){
     int posicao = 0;
     int maior = -100000;
     //Procura pela maior carta na mesa
@@ -79,7 +78,7 @@ void Computador::jogar(Mesa &m){
     }
 }
 
-void Computador::jogaMenorCarta(Mesa &m){
+void Computador::jogaMenorCarta(Mesa& m){
         //Procura a menor carta para jogar
         list<Carta>::iterator it;
         int menor = 100000;
@@ -97,7 +96,7 @@ void Computador::jogaMenorCarta(Mesa &m){
 
 }
 
-void Computador::jogaCartaMaior(int posicao, Mesa &m){ //Nao ta funcionando
+void Computador::jogaCartaMaior(int posicao, Mesa& m){ //Nao ta funcionando
     list<Carta>::iterator it;
     string carta;
     int maior = 10000;
@@ -120,7 +119,7 @@ void Computador::jogaCartaMaior(int posicao, Mesa &m){ //Nao ta funcionando
 void Computador::imprime_mao()
 {
   list<Carta> :: iterator it;
-  for(it = _mao._cartas.begin(); it != _mao._cartas.end(); it++){
+  for(it = this->_mao._cartas.begin(); it != this->_mao._cartas.end(); it++){
     cout << "Carta: " << it->get_nome() << it->get_naipe() << endl;
   }
 }
@@ -132,7 +131,6 @@ void Computador::deletaCarta(int peso, string carta){
     for(it = this->_mao._cartas.begin(); it != this->_mao._cartas.end(); it++){
         c = it->get_nome() + it->get_naipe();
         if(it->get_peso() == peso && carta == c){
-            remover = it;
         }
     }
     if(remover != this->_mao._cartas.begin()){
@@ -142,4 +140,8 @@ void Computador::deletaCarta(int peso, string carta){
 
 string Computador::get_nome(){
   return this->_nome;
+}
+int Computador::get_time()
+{
+  return this->_time;
 }

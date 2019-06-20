@@ -4,6 +4,7 @@
 #include <string>
 #include "player.h"
 #include "mao.h"
+#include "carta.h"
 
 class Pessoa: public Player{
     public:
@@ -12,10 +13,11 @@ class Pessoa: public Player{
         virtual bool revisarTruco();
         virtual string get_nome();
         virtual Mao get_mao();
-        virtual void receberMao(Mao &mao);
+        virtual void receberMao(Mao& mao);
         void jogarCoberta();
         void imprime_mao();
         Carta escolhe_carta();
+        virtual int get_time();
 };
 
 #endif

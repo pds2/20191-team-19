@@ -1,7 +1,6 @@
 #include "../include/mesa.h"
 #include "../include/carta.h"
 #include <iostream>
-#include <math.h>
 
 using namespace std;
 
@@ -16,42 +15,6 @@ Mesa::Mesa(){
  * Pessoa ja jogou
 */
 void Mesa::imprime_mesa(string p, string c1, string c2, string c3, Carta &carta){
-    int peso = 0;
-    string carta1, carta2, carta3;
-
-    int i = 1;
-    peso = this->cartas[i];
-    if(peso != 0)
-        carta1 = recuperaCarta(i, peso).get_nome() + recuperaCarta(i, peso).get_naipe();/*Quando player funcionando, tirar o -1*/
-    else
-        carta1 = "      ";
-    i++;
-    peso = this->cartas[i];
-    if(peso != 0)
-        carta2 = recuperaCarta(i, peso).get_nome() + recuperaCarta(i, peso).get_naipe();/*Quando player funcionando, tirar o -1*/
-    else
-        carta2 = "      ";
-    i++;
-    peso = this->cartas[i];
-    if(peso != 0)
-        carta3 = recuperaCarta(i, peso).get_nome() + recuperaCarta(i, peso).get_naipe();/*Quando player funcionando, tirar o -1*/
-    else
-        carta3 = "      ";
-
-    cout << "\t\t\t" << "   " << c2 << endl;
-    cout << "\t\t\t" << carta2 << endl;
-    cout << endl; cout << endl;
-    cout << "    " << c3 << carta3;
-    cout << "\t\t        " << carta1 << "  " << c1;
-    cout << endl; cout << endl;
-    cout << "\t\t\t" << carta.get_nome() << carta.get_naipe() << endl;
-    cout << "\t\t\t" << "   " << p << endl;
-}
-
-/**
- * Pessoa ainda nao jogou
-*/
-void Mesa::imprime_mesa(string p, string c1, string c2, string c3){
     int peso = 0;
     string carta1, carta2, carta3;
 
@@ -74,21 +37,60 @@ void Mesa::imprime_mesa(string p, string c1, string c2, string c3){
     else
         carta3 = "      ";
 
+    cout << "--------------------------------------------------" << endl;
     cout << "\t\t\t" << "   " << c2 << endl;
-    cout << "\t\t\t" << carta2 << endl;
+    cout << "\t\t    " << carta2 << endl;
     cout << endl; cout << endl;
-    cout << "    " << c3 << carta3;
-    cout << "\t\t        " << carta1 << "  " << c1;
+    cout << "    "<< c3 << ": "  << carta3;
+    cout << "\t\t   "<< c1 << ": " << carta1 << "  ";
     cout << endl; cout << endl;
-    cout << "\t\t\t" << "      " << endl;
+    cout << "\t\t  " << carta.get_nome() << carta.get_naipe() << endl;
     cout << "\t\t\t" << "   " << p << endl;
+    cout << "--------------------------------------------------" << endl;
+}
+
+/**
+ * Pessoa ainda nao jogou
+*/
+void Mesa::imprime_mesa(string p, string c1, string c2, string c3){
+    int peso = 0;
+    string carta1, carta2, carta3;
+    int i = 1;
+    peso = this->cartas[i];
+    if(peso != 0)
+        carta1 = recuperaCarta(i, peso).get_nome() + recuperaCarta(i, peso).get_naipe();
+    else
+        carta1 = "      ";
+    i++;
+    peso = this->cartas[i];
+    if(peso != 0)
+        carta2 = recuperaCarta(i, peso).get_nome() + recuperaCarta(i, peso).get_naipe();
+    else
+        carta2 = "      ";
+    i++;
+    peso = this->cartas[i];
+    if(peso != 0)
+        carta3 = recuperaCarta(i, peso).get_nome() + recuperaCarta(i, peso).get_naipe();
+    else
+        carta3 = "      ";
+
+    cout << "--------------------------------------------------" << endl;
+    cout << "\t\t\t" << "   " << c2 << endl;
+    cout << "\t\t    " << carta2 << endl;
+    cout << endl; cout << endl;
+    cout << "    "<< c3 << ": "  << carta3;
+    cout << "\t\t   "<< c1 << ": " << carta1 << "  ";
+    cout << endl; cout << endl;
+    cout << "\t\t  " << "       " << endl;
+    cout << "\t\t\t" << "   " << p << endl;
+    cout << "--------------------------------------------------" << endl;
 }
 
 Carta Mesa::recuperaCarta(int id, int peso){
     list<Carta>::iterator it = this->baralho.begin();
     Carta c;
     if(id != 0){
-        advance(it, id + pow(2, id));
+        advance(it, id * 3);
     }
     for(it; it != this->baralho.end(); it++){
         if(it->get_peso() == peso){
@@ -108,7 +110,7 @@ int Mesa::verificaQuemGanhou(){
             maior = this->cartas[i];
             posicao = i;
     }
-    if(this->ganhouRodada[0] != 0 || this->ganhouRodada[0] != 0)
+    if(this->ganhouRodada[0] == 1 || this->ganhouRodada[1] == 1)
         return posicao;
     else if(posicao == 0 || posicao == 2)
         this->ganhouRodada[0]++;
@@ -121,14 +123,8 @@ void Mesa::limpaMesa(){
         this->rodadaAnterior[i] = this->cartas[i];
         this->cartas[i] = 0;
         if(i < 2){
-            this->ganhouRodada[i];
+            this->ganhouRodada[i]++;
         }
     }
-
-    list<Carta> :: iterator it;
-    for(it = this->baralho.begin(); it != this->baralho.end(); it++){
-        this->baralho.erase(it);
-    }
-
     this->valorRodada = 0;
 }

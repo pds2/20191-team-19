@@ -4,13 +4,13 @@ TSTDIR := tests
 OBJDIR := build
 BINDIR := bin
 
-MAIN := src/main.cpp
-#TESTER := program/tester.cpp
+MAIN := bin/main.cpp
+TESTER := bin/tester.cpp
 
 SRCEXT := cpp
 SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
 OBJECTS := $(patsubst $(SRCDIR)/%,$(OBJDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
-#TSTSOURCES := $(shell find $(TSTDIR) -type f -name *.$(SRCEXT))
+TSTSOURCES := $(shell find $(TSTDIR) -type f -name *.$(SRCEXT))
 
 # -g debug, --coverage para cobertura
 CFLAGS := --coverage -g -Wall -O3 -std=c++11
@@ -22,7 +22,7 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
 
 main: $(OBJECTS)
 	@mkdir -p $(BINDIR)
-	$(CC) $(CFLAGS) $(INC) $^ -o $(BINDIR)/main
+	$(CC) $(CFLAGS) $(INC) $(MAIN) $^ -o $(BINDIR)/main
 
 tests: $(OBJECTS)
 	@mkdir -p $(BINDIR)
