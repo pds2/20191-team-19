@@ -20,4 +20,16 @@ User stories:
 
 8- Como jogador, quero jogar a carta coberta, a partir da segunda rodada.
 
+Tutorial para utilização:
+
+Para rodar o jogo bastante executar o comando make run.
+O jogo irá se inicializar, te dando 2 opções:
+1- Iniciar Jogo
+2- Sair do Jogo
+
+Ao selecionar a opção 1, o jogo irá solicitar seu nome. Após ter digitado e pressionado Enter,
+os computadores irão começar a jogar e quando estiver na sua vez, você terá a opção de selecionar
+uma carta com os números 1 a 3. Desse jeito, o jogo seguirá o fluxo, até que um dos dois times
+faça 12 pontos e ganhe o jogo.
+
 
