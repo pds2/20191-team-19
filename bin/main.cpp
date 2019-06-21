@@ -43,8 +43,7 @@ int main()
                         cout << "\t\t TRUCÃO MALADO " << endl;
                         cout << " Menu: " << endl;
                         cout << " 1 - Iniciar Jogo" << endl;
-                        cout << " 2 - Carregar Jogo" << endl;
-                        cout << " 3 - Sair" << endl;
+                        cout << " 2 - Sair" << endl;
                         cout << ">";
                         getline(cin, opcao_);
                         opcao=atoi(opcao_.c_str());
